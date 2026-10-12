@@ -78,3 +78,5 @@ window.WORKSHOP = {
  data.slides[5].items[0]='2 минути: изберете медицински предмет или лична услуга, тема и цел.';
  data.checklist.push('За стручни чекори провери важечки протокол или упатство на производителот; користи симулација под наставнички надзор.');
 })(window.WORKSHOP);
+
+Object.assign(window.WORKSHOP.ui, {materialsTitle:"Материјали за споделување",materialsIntro:"Преземи PDF за печатење или ZIP за локална работа. Распакувај го ZIP-от и отвори docs/index.html. Водичот содржи сценарио за обуката.",materialsPdf:"PDF — 28 промптови",materialsZip:"ZIP-пакет (онлајн)",materialsGuide:"Водич за презентерот"});
