@@ -80,3 +80,6 @@ window.WORKSHOP = {
 })(window.WORKSHOP);
 
 Object.assign(window.WORKSHOP.ui, {materialsTitle:"Материјали за споделување",materialsIntro:"Преземи PDF за печатење или ZIP за локална работа. Распакувај го ZIP-от и отвори docs/index.html. Водичот содржи сценарио за обуката.",materialsPdf:"PDF — 28 промптови",materialsZip:"ZIP-пакет (онлајн)",materialsGuide:"Водич за презентерот"});
+
+// Link to the separate vocational multimedia workshop.
+window.addEventListener('DOMContentLoaded', () => { const link = document.createElement('a'); link.href = 'obuki/'; link.textContent = 'ВИ обуки: слики, видео и говор — 24 стручни промптови'; link.style.cssText = 'display:block;padding:16px 24px;text-align:center;font-weight:700'; document.body.insertBefore(link, document.getElementById('main')); });
