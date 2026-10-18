@@ -1,0 +1,84 @@
+name: "Нов наставнички промпт (македонски)"
+description: "Предложи проверлив промпт за гимназиско или средно стручно образование."
+title: "[MK промпт] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Благодариме за предлогот. Не внесувај лични податоци на ученици, вистински пациенти или клиенти.
+        Предлозите се разгледуваат пред објавување и мора да имаат јасна наставна примена.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Образовна област
+      options:
+        - Општообразовни предмети
+        - Гимназиско образование
+        - Електротехника и информатика
+        - Економско образование
+        - Машинско образование
+        - Сообраќајно образование
+        - Угостителство и туризам
+        - Медицинско образование
+        - Хемиско образование
+        - Лични услуги
+        - Друго (наведи во опис)
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Предмет и образовна година
+      placeholder: "Математика, II година гимназија"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Наставна цел и предзнаења
+      description: Наведи цел/исход, што учениците веќе знаат и контекст на часот.
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Формат на ресурс
+      options:
+        - План или активност
+        - Работен лист или оценување
+        - Слика или дијаграм
+        - Видео-сценарио
+        - HTML-интерактивна активност
+        - Нарација / TTS
+        - Квиз
+        - Друго
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Предлог-промпт
+      description: Конкретна задача, ограничувања и барана форма на излез.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Проверени извори и ограничувања
+      description: Наведи одобрен учебник, наставна програма, стандарди или документација кога се релевантни. Не измислувај извори.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Наставничка проверка
+      description: Што конкретно мора да се провери пред примена на часот?
+    validations:
+      required: true
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Потврда за објавување
+      options:
+        - label: Предлогот нема лични ученички податоци и може да се разгледува за јавно објавување според правилата и лиценцата на локалната работилница.
+          required: true
