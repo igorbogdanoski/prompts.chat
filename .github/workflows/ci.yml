@@ -33,3 +33,5 @@ jobs:
 
       - name: Run tests
         run: npm test
+      - name: Validate Macedonian teaching libraries
+        run: npm run test:workshops
