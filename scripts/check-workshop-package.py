@@ -4,7 +4,7 @@ from pathlib import Path
 import fitz
 root=Path(__file__).resolve().parents[1]
 d=root/'docs';data=json.loads((d/'collection.json').read_text(encoding='utf-8'))
-pdf=fitz.open(d/'materiali.pdf');assert len(pdf)==243
+pdf=fitz.open(d/'materiali.pdf');assert len(pdf)==data['counts']['total']+1
 norm=lambda x:re.sub(r'\s+','',x)
 items=data['main']+data['multimedia']+data['visual']
 for page,item in zip(list(pdf)[1:],items):
@@ -22,4 +22,4 @@ with zipfile.ZipFile(d/'paket.zip') as z:
   assert raw==(root/name).read_bytes(),name
  assert z.read('docs/PACKAGE-MANIFEST.json')==(d/'PACKAGE-MANIFEST.json').read_bytes()
  assert z.read('WORKSHOP-MK.md')==(root/'WORKSHOP-MK.md').read_bytes()
-print('PASS: all 242 full prompt texts in PDF, 243 pages within bounds, ZIP CRCs, manifest SHA-256 and archive/local byte parity.')
+print('PASS: all 302 full prompt texts in PDF, 303 pages within bounds, ZIP CRCs, manifest SHA-256 and archive/local byte parity.')

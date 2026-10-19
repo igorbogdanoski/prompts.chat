@@ -12,7 +12,7 @@ const params=new URLSearchParams(window.location.search);
 let area=data.areas.some(a=>a[0]===params.get('area'))?params.get('area'):'all';
 let subject=params.get('subject')||'all';
 let kind=data.kinds.some(k=>k[0]===params.get('kind'))?params.get('kind'):'all';
-function select(id,label){const wrap=node('label','filter-field',label),el=node('select');el.id=id;wrap.append(el);byId('filters').append(wrap);return el;}
+function select(id,text){const wrap=node('div','filter-field'),label=node('label','',text),el=node('select');el.id=id;label.htmlFor=id;wrap.append(label,el);byId('filters').append(wrap);return el;}
 const areaSelect=select('area-filter',t.area),subjectSelect=select('subject-filter',t.subject),kindSelect=select('kind-filter',t.kind);
 function options(el,rows,current){el.replaceChildren(...[['all',t.all],...rows].map(([value,label])=>{const o=node('option','',label);o.value=value;return o;}));el.value=current;}
 options(areaSelect,data.areas,area);options(kindSelect,data.kinds,kind);
