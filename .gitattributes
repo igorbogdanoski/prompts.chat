@@ -1,1 +1,4 @@
 .github/workflows/*.lock.yml linguist-generated=true merge=ours
+/docs/** text eol=lf
+/docs/*.pdf binary
+/docs/*.zip binary
