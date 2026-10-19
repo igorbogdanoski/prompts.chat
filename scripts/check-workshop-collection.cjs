@@ -22,5 +22,5 @@ for(const sector of ['agriculture','laboratory','optics']){
  links(dom);dom.window.close();
 }
 dom=load('resursi',['content.js','app.js']);assert.equal(dom.window.document.querySelectorAll('.area').length,13);links(dom);dom.window.close();
-dom=load('visual-lab',['app.js']);assert.equal(dom.window.document.querySelectorAll('.card').length,50);links(dom);dom.window.close();
+dom=load('visual-lab',['content.js','app.js']);assert.equal(dom.window.document.querySelectorAll('.card').length,110);links(dom);dom.window.close();
 console.log('PASS: new category filters, six media formats and deep links, composition, keyboard slides, 13 portal areas, Visual Lab and local resource links.');

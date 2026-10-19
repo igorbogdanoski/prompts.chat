@@ -1,9 +1,9 @@
 /* Македонска навигација за наставници. MIT; docs/LICENSE */
 window.SECONDARY_RESOURCE = {
  title:"Ресурси за наставници",subheading:"Отворена македонска библиотека за средно образование",
- counts:{general:102,multimedia:90,visual:50},
+ counts:{general:102,multimedia:90,visual:110},
  links:{main:"../index.html",media:"../obuki/index.html",visual:"../visual-lab/index.html",source:"https://github.com/igorbogdanoski/prompts.chat",contribute:"https://github.com/igorbogdanoski/prompts.chat/issues/new?template=nov-prompt-mk.yml"},
- areas:[{"name": "Земјоделство", "type": "Стручно", "icon": "◉", "category": "Земјоделство", "sector": "agriculture", "examples": "Наставни задачи · проверени извори · рубрики", "visual": false}, {"name": "Хемиско-лабораториско образование", "type": "Стручно", "icon": "◉", "category": "Хемиско-лабораториско образование", "sector": "laboratory", "examples": "Наставни задачи · проверени извори · рубрики", "visual": false}, {"name": "Очна оптика", "type": "Стручно", "icon": "◉", "category": "Очна оптика", "sector": "optics", "examples": "Наставни задачи · проверени извори · рубрики", "visual": false},
+ areas:[{"name": "Земјоделство", "type": "Стручно", "icon": "◉", "category": "Земјоделство", "sector": "agriculture", "examples": "Наставни задачи · проверени извори · рубрики", "visual": true}, {"name": "Хемиско-лабораториско образование", "type": "Стручно", "icon": "◉", "category": "Хемиско-лабораториско образование", "sector": "laboratory", "examples": "Наставни задачи · проверени извори · рубрики", "visual": true}, {"name": "Очна оптика", "type": "Стручно", "icon": "◉", "category": "Очна оптика", "sector": "optics", "examples": "Наставни задачи · проверени извори · рубрики", "visual": true},
  {
   "name": "Електротехника и ИКТ",
   "type": "Стручно",
@@ -88,3 +88,4 @@ window.SECONDARY_RESOURCE = {
  }
 ]
 };
+window.SECONDARY_RESOURCE.areas.forEach(a=>{a.visual=true;a.visualArea=({chemistry:"laboratory",gym:"general"})[a.sector]||a.sector;});
