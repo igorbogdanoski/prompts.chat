@@ -24,7 +24,8 @@ function download(text){const url=URL.createObjectURL(new Blob(['\ufeff'+text],{
 function card(p){
  const item=node('article','card');item.dataset.id=p.id;
  const cap=node('div','card-cap');cap.append(node('span','number',String(p.id).padStart(3,'0')),node('span','category',p.category));item.append(cap);
- const visual=node('div','visual');visual.setAttribute('aria-hidden','true');visual.append(node('span','visual-icon','◈'),node('span','visual-command',p.command));item.append(visual);
+ const visual=node('figure','visual'),image=node('img','visual-illustration');image.src='illustrations/'+String(p.id).padStart(3,'0')+'.svg';image.alt=t.imageAlt+p.title;image.width=640;image.height=360;image.loading=p.id<=3?'eager':'lazy';image.decoding='async';
+ const caption=node('figcaption','visual-caption');caption.append(node('span','visual-command',p.command),node('span','visual-label',t.illustrationPreview));visual.append(image,caption);item.append(visual);
  item.append(node('h3','',p.title),node('p','subject',p.subject+' · '+data.kinds.find(k=>k[0]===p.kind)[1]),node('p','subject',t.example+p.object),node('p','application',p.application));
  const details=node('details','details'),summary=node('summary','',t.edit),label=node('label','prompt-label',t.fullPrompt),field=node('textarea','prompt-editor');
  field.id='prompt-'+p.id;label.htmlFor=field.id;field.rows=12;field.value=edits.get(p.id)??data.template(p);

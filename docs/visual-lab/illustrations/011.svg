@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+<title id="title">Шема на поврзување</title><desc id="desc">Авторска концептуална илустрација: Реле и нисконапонска светилка. Илустративен преглед на темата.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#eaf4fc"/><stop offset="1" stop-color="#d5e9f8"/></linearGradient><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" fill="none" stroke="#24578b" stroke-opacity=".055"/></pattern></defs>
+<g style="--ink:#203c50;--accent:#24578b;--soft:#d5e9f8;--pale:#eaf4fc;--warm:#ecaf68">
+<rect width="640" height="360" fill="#eaf4fc"/>
+<path d="M24 0v360M48 0v360M72 0v360M96 0v360M120 0v360M144 0v360M168 0v360M192 0v360M216 0v360M240 0v360M264 0v360M288 0v360M312 0v360M336 0v360M360 0v360M384 0v360M408 0v360M432 0v360M456 0v360M480 0v360M504 0v360M528 0v360M552 0v360M576 0v360M600 0v360M624 0v360M0 24h640M0 48h640M0 72h640M0 96h640M0 120h640M0 144h640M0 168h640M0 192h640M0 216h640M0 240h640M0 264h640M0 288h640M0 312h640M0 336h640" stroke="#24578b" stroke-opacity=".045" fill="none"/>
+<circle cx="322" cy="181" r="142" fill="white" opacity=".58"/><ellipse cx="326" cy="307" rx="153" ry="13" fill="#24578b" opacity=".08"/>
+<g stroke="#203c50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(153 52)"><path d="M123 151c0-31-39-37-39-79a66 66 0 0 1 132 0c0 42-40 48-40 79Z" fill="#d5e9f8" /><rect x="121" y="156" width="57" height="17" rx="5" fill="#24578b" /><rect x="128" y="179" width="43" height="14" rx="4" fill="#203c50" /><path d="M149 151V89m-20-16 20 16 20-16" fill="none" /><path d="M150 0L150 15" fill="none" stroke="#24578b"/><path d="M47 63L64 69" fill="none" stroke="#24578b"/><path d="M245 61L230 68" fill="none" stroke="#24578b"/><path d="M67 8L82 24" fill="none" stroke="#24578b"/><path d="M229 11L217 26" fill="none" stroke="#24578b"/></g></g>
+<path d="M28 31h26M28 31v26M612 329h-26M612 329v-26" fill="none" stroke="#24578b" stroke-opacity=".35" stroke-width="2"/>
+<text x="572" y="34" fill="#24578b" stroke="none" font-size="13" font-family="Arial, sans-serif" >011</text>
+</g></svg>
