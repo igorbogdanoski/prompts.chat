@@ -41,6 +41,6 @@ files=sorted(p for p in Path('docs').rglob('*') if p.is_file() and p.name not in
 manifest={'date':'2026-10-19','counts':data['counts'],'files':{str(p).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
 Path('docs/PACKAGE-MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
 with zipfile.ZipFile('docs/paket.zip','w',zipfile.ZIP_DEFLATED) as z:
- for pth in files+[Path('docs/PACKAGE-MANIFEST.json'),Path('WORKSHOP-MK.md')]:z.write(pth,str(pth).replace('\\','/'))
+ for pth in files+[Path('docs/PACKAGE-MANIFEST.json'),Path('WORKSHOP-MK.md'),Path('CONTRIBUTING-MK.md'),Path('.github/ISSUE_TEMPLATE/nov-prompt-mk.yml')]:z.write(pth,str(pth).replace('\\','/'))
  z.writestr('POCNI-TUKA.txt','Распакувај ја целата архива. Отвори docs/index.html. 102 + 90 + 50 = 242 промптови. Надворешни AI-услуги бараат интернет. Види WORKSHOP-MK.md и docs/PACKAGE-MANIFEST.json.')
 print('Built docs/materiali.pdf and docs/paket.zip; counts:',data['counts'])
