@@ -8,6 +8,8 @@ function load(query=''){
 (async()=>{
  let dom=load(),w=dom.window,d=w.document,data=w.VISUAL_LAB;
  assert.equal(data.prompts.length,110);assert.equal(new Set(data.prompts.map(p=>p.id)).size,110);assert.equal(new Set(data.prompts.map(p=>p.command)).size,110);
+ assert.equal(d.querySelectorAll('.visual img').length,110);
+ for(const p of data.prompts){const img=d.querySelector('.card[data-id="'+p.id+'"] .visual img');assert.ok(img.alt.includes(p.title));assert.equal(img.width,640);assert.equal(img.height,360);assert.ok(fs.existsSync(path.join(dir,img.getAttribute('src'))));}
  const original=JSON.parse(fs.readFileSync(path.join(__dirname,'visual-lab-original-50.json'),'utf8'));
  for(const expected of original){const actual=data.prompts.find(p=>p.id===expected.id);for(const [key,value] of Object.entries(expected)){if(key==='textSha256')assert.equal(crypto.createHash('sha256').update(data.template(actual)).digest('hex'),value);else assert.equal(actual[key],value);}}
  const change=(id,value)=>{const el=d.getElementById(id);el.value=value;el.dispatchEvent(new w.Event('change'));};

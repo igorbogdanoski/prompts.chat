@@ -11,7 +11,7 @@ from reportlab.lib.colors import HexColor
 root=Path(__file__).resolve().parents[1]
 os.chdir(root)
 Path('docs/VODIC-ZA-OBUKA.md').write_text(Path('WORKSHOP-MK.md').read_text(encoding='utf-8').replace('(docs/','('),encoding='utf-8',newline='\n')
-parser=argparse.ArgumentParser(); parser.add_argument('--font',default='C:/Windows/Fonts/arial.ttf'); args=parser.parse_args()
+parser=argparse.ArgumentParser(); parser.add_argument('--font',default='C:/Windows/Fonts/arial.ttf'); parser.add_argument('--keep-pdf',action='store_true',help='Keep the validated PDF when updating only offline web assets.'); args=parser.parse_args()
 subprocess.run(['node','scripts/export-workshop.cjs','docs/collection.json'],check=True)
 data=json.loads(Path('docs/collection.json').read_text(encoding='utf-8'))
 counts=data['counts']; total=counts['total']
@@ -40,11 +40,12 @@ for label,key in [('Главна библиотека','main'),('Мултиме�
   story += [PageBreak()]
 def footer(canvas,doc):
  canvas.setFont('MK',8);canvas.setFillColor(HexColor('#50616a'));canvas.drawString(42,25,f'Наставничка библиотека · MK · {total} промптови');canvas.drawRightString(553,25,str(doc.page))
-SimpleDocTemplate('docs/materiali.pdf',pagesize=(595,842),leftMargin=42,rightMargin=42,topMargin=42,bottomMargin=42,title='Промптови за наставници - 302',author='Игор Богданоски').build(story,onFirstPage=footer,onLaterPages=footer)
+if not args.keep_pdf:
+ SimpleDocTemplate('docs/materiali.pdf',pagesize=(595,842),leftMargin=42,rightMargin=42,topMargin=42,bottomMargin=42,title='Промптови за наставници - 302',author='Игор Богданоски').build(story,onFirstPage=footer,onLaterPages=footer)
 files=sorted(p for p in Path('docs').rglob('*') if p.is_file() and p.name not in ['paket.zip','AGENTS.md','PACKAGE-MANIFEST.json'])
 manifest={'date':'2026-10-19','counts':data['counts'],'files':{str(p).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
 Path('docs/PACKAGE-MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
 with zipfile.ZipFile('docs/paket.zip','w',zipfile.ZIP_DEFLATED) as z:
  for pth in files+[Path('docs/PACKAGE-MANIFEST.json'),Path('WORKSHOP-MK.md'),Path('CONTRIBUTING-MK.md'),Path('.github/ISSUE_TEMPLATE/nov-prompt-mk.yml')]:z.write(pth,str(pth).replace('\\','/'))
  z.writestr('POCNI-TUKA.txt','Распакувај ја целата архива. Отвори docs/index.html. 102 + 90 + 110 = 302 промптови. Надворешни AI-услуги бараат интернет. Види WORKSHOP-MK.md и docs/PACKAGE-MANIFEST.json.')
-print('Built docs/materiali.pdf and docs/paket.zip; counts:',data['counts'])
+print('Kept validated PDF; rebuilt docs/paket.zip.' if args.keep_pdf else 'Built docs/materiali.pdf and docs/paket.zip;', 'counts:',data['counts'])
